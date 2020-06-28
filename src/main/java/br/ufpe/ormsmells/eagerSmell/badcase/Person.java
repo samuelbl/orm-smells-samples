@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import br.ufpe.ormsmells.auxiliary.Address;
+import br.ufpe.ormsmells.auxiliary.Email;
 import br.ufpe.ormsmells.eagerSmell.goodcase.Student;
 
 /**
@@ -20,10 +21,11 @@ import br.ufpe.ormsmells.eagerSmell.goodcase.Student;
  * @version 0.1
  * @author Samuel Bristot Loli 
  * @author_mail sbl@cin.ufpe.br
+ * @code_smell Eager as a Fetch Strategy In Class-level (Static) Relationships
  * 
  * @description A domain class Person with relationships EAGER
- * @number_of_smells 3
- * @challenges the detector must point the smells from implicit EAGER (student) and explicit Eager (students, principalAddress) 
+ * @number_of_smell_instances 3
+ * @challenges the detector must point the smells from implicit EAGER (email) and explicit Eager (principalAddress, students) 
  */
 @Entity
 public class Person {
@@ -34,7 +36,7 @@ public class Person {
 	private int id;
 	
 	@ManyToOne
-	private Student student;
+	private Email email;
 	
 	private String name;
 	
@@ -58,15 +60,7 @@ public class Person {
 		this.id = id;
 	}
 
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
-	}
-
-	public String getName() {
+		public String getName() {
 		return name;
 	}
 
@@ -96,6 +90,22 @@ public class Person {
 
 	public void setPrincipalAddress(Address principalAddress) {
 		this.principalAddress = principalAddress;
+	}
+
+	public Email getEmail() {
+		return email;
+	}
+
+	public void setEmail(Email email) {
+		this.email = email;
+	}
+
+	public Set<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Student> students) {
+		this.students = students;
 	}
 
 	
