@@ -1,13 +1,11 @@
 package br.ufpe.ormsmells.auxiliary;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-public class Address {
+public class ClassDate {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -20,6 +18,4 @@ public class Address {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
 }
