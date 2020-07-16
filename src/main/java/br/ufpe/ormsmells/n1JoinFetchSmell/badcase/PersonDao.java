@@ -29,14 +29,14 @@ public class PersonDao {
 	private EntityManager entityManager;
 		
 	public Person findPersonById(Integer id) {
-		String hql = "SELECT new Person(p.cpf, p.name) FROM Person p WHERE p.id = :id";
+		String hql = "FROM Person p WHERE p.id = :id";
 		Query q = entityManager.createQuery(hql.toString());
 		q.setParameter("id", id);
 		return (Person) q.getSingleResult();
 	}
 
 	public Person findPersonWithStudents(Integer id){
-		StringBuilder hql = new StringBuilder("Select new Person(pe.cpf, pe.name)");
+		StringBuilder hql = new StringBuilder("Select pe");
 		hql.append(" FROM Person pe");
 		hql.append(" LEFT JOIN FETCH pe.students st");
 		hql.append(" WHERE p.id = :id");
@@ -46,7 +46,7 @@ public class PersonDao {
 	}
 	
 	public Person findPersonByEmail(Email email){
-		StringBuilder hql = new StringBuilder("select new Person(pe.cpf, pe.name)");
+		StringBuilder hql = new StringBuilder("select pe");
 		hql.append(" FROM Person pe");
 		hql.append(" LEFT JOIN FETCH pe.email em");
 		hql.append(" LEFT JOIN FETCH pe.principalAddress ad");

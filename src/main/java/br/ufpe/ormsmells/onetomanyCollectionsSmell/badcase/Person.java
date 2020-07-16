@@ -2,7 +2,6 @@ package br.ufpe.ormsmells.onetomanyCollectionsSmell.badcase;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -55,7 +54,6 @@ public class Person {
 	
 	private Integer cpf;
 	
-
 	public int getId() {
 		return id;
 	}
@@ -80,11 +78,6 @@ public class Person {
 		this.cpf = cpf;
 	}
 
-	
-
-	public void setOthersAdress(Set<Address> othersAdress) {
-		this.othersAdress = othersAdress;
-	}
 
 	public Address getPrincipalAddress() {
 		return principalAddress;
@@ -100,14 +93,6 @@ public class Person {
 
 	public void setEmail(Email email) {
 		this.email = email;
-	}
-
-	public Collection<Address> getOthersAdress() {
-		return othersAdress;
-	}
-
-	public void setOthersAdress(Collection<Address> othersAdress) {
-		this.othersAdress = othersAdress;
 	}
 
 	
