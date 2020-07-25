@@ -29,6 +29,7 @@ public class GeneralDao {
 		
 	public Person findPersonById(Integer id) {
 		StringBuilder hql = new StringBuilder("select new Person(pe.cpf, pe.name)");
+		hql.append(" FROM Person pe");
 		hql.append(" LEFT JOIN FETCH pe.students st");
 		hql.append(" JOIN FETCH pe.email em");
 		hql.append(" JOIN FETCH pe.principalAddress ad");
