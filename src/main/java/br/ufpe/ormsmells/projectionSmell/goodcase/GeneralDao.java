@@ -15,6 +15,7 @@ import br.ufpe.ormsmells.eagerSmell.goodcase.Student;
  * 
  * @description A DAO class GeneralDao with ORM queries retrieving objects with projection
  * @number_of_smell_instances 0
+ * @number_of_others_smell_instances 0
  * @challenges 	The detector must ignore queries with projection in methods: 
  * 				findStudentById, findIdStudentbyEnrollment, findPersonByid
  */

@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import br.ufpe.ormsmells.auxiliary.Address;
 import br.ufpe.ormsmells.auxiliary.ClassDate;
 import br.ufpe.ormsmells.eagerSmell.badcase.Person;
 /**
@@ -20,7 +22,8 @@ import br.ufpe.ormsmells.eagerSmell.badcase.Person;
  * 
  * @description A domain class Student with relationships Lazy
  * @number_of_smell_instances 0
- * @challenges the detector must ignore the relationships with implicit Lazy (classDates) and explicit Lazy (person) 
+ * @number_of_others_smell_instances 0
+ * @challenges the detector must ignore the relationships with implicit Lazy (classDates) and explicit Lazy (person, address) 
  */
 
 @Entity
@@ -36,6 +39,9 @@ public class Student {
 	
 	@OneToMany
 	private Set<ClassDate> classDates;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	private Set<Address> address;
 
 	private String enrollment;
 

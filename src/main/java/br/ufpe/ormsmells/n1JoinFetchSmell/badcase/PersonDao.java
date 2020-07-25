@@ -6,6 +6,7 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import br.ufpe.ormsmells.auxiliary.Email;
 import br.ufpe.ormsmells.eagerSmell.badcase.Person;
+import br.ufpe.ormsmells.eagerSmell.goodcase.Student;
 
 /**
  * @testcase_name BadCasen1JoinFetchSmell
@@ -15,7 +16,8 @@ import br.ufpe.ormsmells.eagerSmell.badcase.Person;
  * @code_smell Lack of Join Fetch in ORM Queries to Retrieve Objects With Eager Attributes
  * 
  * @description A DAO class PersonDao with ORM queries retrieving objects with Eager attributes 
- * @number_of_smell_instances 3
+ * @number_of_smell_instances 3 (projectionSmell)
+ * @number_of_others_smell_instances 3
  * @challenges 	The detector must point the smells showing the Eager attributes without Join Fetch in the methods:
  * 			   	findPersonById - attributes email, principalAddress, students;
  * 				findPersonWithStudents - attributes email, principalAddress;
@@ -35,14 +37,14 @@ public class PersonDao {
 		return (Person) q.getSingleResult();
 	}
 
-	public Person findPersonWithStudents(Integer id){
-		StringBuilder hql = new StringBuilder("Select pe");
-		hql.append(" FROM Person pe");
-		hql.append(" LEFT JOIN FETCH pe.students st");
+	public Student findPersonWithStudents(Integer id){
+		StringBuilder hql = new StringBuilder("Select student");
+		hql.append(" FROM Student student");
+		hql.append(" LEFT JOIN FETCH person.students st");
 		hql.append(" WHERE p.id = :id");
 		Query q = entityManager.createQuery(hql.toString());
 		q.setParameter("id", id);
-		return (Person) q.getSingleResult();
+		return (Student) q.getSingleResult();
 	}
 	
 	public Person findPersonByEmail(Email email){

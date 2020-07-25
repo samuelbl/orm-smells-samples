@@ -21,6 +21,7 @@ import br.ufpe.ormsmells.eagerSmell.badcase.Person;
  * 
  * @description A domain class Student with bilateral and unilateral (with appropriate use of collections) OneToMany.
  * @number_of_smell_instances 0
+ * @number_of_others_smell_instances 0
  * @challenges the detector must ignore the smells from unilateral OneToMany with Set type (classDates) and bilateral OneToMany (listPerson) 
  */
 

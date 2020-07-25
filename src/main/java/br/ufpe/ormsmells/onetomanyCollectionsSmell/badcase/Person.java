@@ -24,8 +24,9 @@ import br.ufpe.ormsmells.onetomanyCollectionsSmell.goodcase.Student;
  * @code_smell Unilateral OneToMany with Inappropriate Use of Collections
  * 
  * @description A domain class Person with unilaterals OneToMany
- * @number_of_smell_instances 2
- * @challenges the detector must point the smells from unilateral OneToMany with List type (students) and Collection type (principalAddress, othersAdress) 
+ * @number_of_smell_instances 3
+ * @number_of_others_smell_instances 0
+ * @challenges the detector must point the smells from unilateral OneToMany with List type (students) and Collection type (worksAdress, housesAdress) 
  */
 @Entity
 public class Person {

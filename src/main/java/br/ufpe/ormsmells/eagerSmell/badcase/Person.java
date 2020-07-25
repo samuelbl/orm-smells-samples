@@ -25,6 +25,7 @@ import br.ufpe.ormsmells.eagerSmell.goodcase.Student;
  * 
  * @description A domain class Person with relationships EAGER
  * @number_of_smell_instances 3
+ * @number_of_others_smell_instances 0
  * @challenges the detector must point the smells from implicit EAGER (email) and explicit Eager (principalAddress, students) 
  */
 @Entity

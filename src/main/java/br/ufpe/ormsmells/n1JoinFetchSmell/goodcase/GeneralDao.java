@@ -18,6 +18,7 @@ import br.ufpe.ormsmells.eagerSmell.goodcase.Student;
  * 
  * @description A DAO class GeneralDao with ORM queries retrieving objects with Eager and Lazy attributes 
  * @number_of_smell_instances 0
+ * @number_of_others_smell_instances 0
  * @challenges 	The detector must ignore the queries with Lazy attributes (findStudents) and 
  * 				also ignore Eager attributes using Join Fetch (findPersonById, findPersonByEmail)
  */
