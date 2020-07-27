@@ -2,6 +2,7 @@ package br.ufpe.ormsmells.projectionSmell.goodcase;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import br.ufpe.ormsmells.eagerSmell.badcase.Person;
 import br.ufpe.ormsmells.eagerSmell.goodcase.Student;
@@ -17,7 +18,7 @@ import br.ufpe.ormsmells.eagerSmell.goodcase.Student;
  * @number_of_smell_instances 0
  * @number_of_others_smell_instances 0
  * @challenges 	The detector must ignore queries with projection in methods: 
- * 				findStudentById, findIdStudentbyEnrollment, findPersonByid
+ * 				findStudentById, findIdPersonByName, findPersonByid
  */
 
 public class GeneralDao {
@@ -33,13 +34,13 @@ private EntityManager entityManager;
 	}   
 	
 
-	public Integer findIdStudentbyEnrollment(Integer enrollment) {
+	public Person findIdPersonByName(String name) {
 		StringBuilder hql = new StringBuilder();
 		hql.append("SELECT id ");
-		hql.append("FROM Student WHERE enrollment = :enrollment");
-		Query q = entityManager.createQuery(hql.toString());
-		q.setParameter("enrollment", enrollment);
-		return (Integer) q.getSingleResult();
+		hql.append("FROM Person WHERE name = :name");
+		TypedQuery<Person> q = entityManager.createQuery(hql.toString(),Person.class);
+		q.setParameter("name", name);
+		return q.getSingleResult();
 	}   
 	
 	public Person findPersonByid(Integer id) {
