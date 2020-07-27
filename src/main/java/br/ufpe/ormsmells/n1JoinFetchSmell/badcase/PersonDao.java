@@ -40,7 +40,7 @@ public class PersonDao {
 	public Student findPersonWithStudents(Integer id){
 		StringBuilder hql = new StringBuilder("Select student");
 		hql.append(" FROM Student student");
-		hql.append(" LEFT JOIN FETCH person.students st");
+		hql.append(" LEFT JOIN FETCH student.person p");
 		hql.append(" WHERE p.id = :id");
 		Query q = entityManager.createQuery(hql.toString());
 		q.setParameter("id", id);
